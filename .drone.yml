@@ -1,0 +1,17 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: print-success
+    image: alpine
+    commands:
+      - echo "Start Build:"
+  - name: build
+    image: docker:20
+    commands:
+      - docker build -t my-image .
+  - name: print-success
+    image: alpine
+    commands:
+      - echo "End Build"
