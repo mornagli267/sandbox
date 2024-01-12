@@ -7,10 +7,6 @@ steps:
     image: alpine
     commands:
       - echo "Start Build:"
-  - name: build
-    image: docker:20
-    commands:
-      - docker build -t my-image .
   - name: print-end
     image: alpine
     commands:
