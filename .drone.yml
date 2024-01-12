@@ -3,15 +3,7 @@ type: docker
 name: default
 
 steps:
-  - name: print-start
+  - name: hello
     image: alpine
     commands:
-      - echo "Start Build:"
-  # - name: build
-  #   image: docker:20
-  #   commands:
-  #     - docker build -t my-image .
-  # - name: print-end
-  #   image: alpine
-  #   commands:
-  #     - echo "End Build"
+    - echo 'Hello World'
