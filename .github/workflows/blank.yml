@@ -1,20 +1,16 @@
-name: Check User and Send Webhook
+name: Your Workflow
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   check_and_send_webhook:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if push is from outside the organization
+      - name: Check if push is from a specific owner
+        if: github.repository_owner == github.event.sender.login
         run: |
-          if [[ "${{ github.event.sender.login }}" != "SolidRun" ]]; then
-            echo "Push is from outside the organization. Sending webhook..."
-            # Add your webhook sending logic here
-          else
-            echo "Push is from within the organization. No webhook will be sent."
-          fi
+          echo "Push is from the expected owner. Proceed with the workflow."
