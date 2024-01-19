@@ -1,0 +1,20 @@
+name: Check User and Send Webhook
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  check_and_send_webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if push is from outside the organization
+        run: |
+          if [[ "${{ github.event.sender.login }}" != "SolidRun" ]]; then
+            echo "Push is from outside the organization. Sending webhook..."
+            # Add your webhook sending logic here
+          else
+            echo "Push is from within the organization. No webhook will be sent."
+          fi
