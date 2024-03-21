@@ -6,7 +6,7 @@ steps:
   - name: print-start
     image: alpine
     commands:
-      - echo "Start Buildd:"
+      - echo "Start Build:"
   - name: print-end
     image: alpine
     commands:
