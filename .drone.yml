@@ -6,7 +6,7 @@ steps:
   - name: print-start
     image: alpine
     commands:
-      - echo "Start Builddsdsa:"
+      - echo "Start Builddsda:"
   - name: print-end
     image: alpine
     commands:
