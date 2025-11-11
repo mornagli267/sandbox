@@ -3,11 +3,10 @@ metadata:
   name: Redfish Authentication Test
   description: Test BMC Redfish API authentication
 
-install:
-  deps:
-    - curl
 
 run:
   steps:
+    - apt-get update -qq
+    - apt-get install -y curl
     - cd redfish/scripts
     - bash auth_test.sh
