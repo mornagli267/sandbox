@@ -1,0 +1,13 @@
+metadata:
+  format: Lava-Test Test Definition 1.0
+  name: Redfish Authentication Test
+  description: Test BMC Redfish API authentication
+
+install:
+  deps:
+    - curl
+
+run:
+  steps:
+    - cd redfish/scripts
+    - bash auth_test.sh
