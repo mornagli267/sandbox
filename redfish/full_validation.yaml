@@ -1,0 +1,11 @@
+metadata:
+  format: Lava-Test Test Definition 1.0
+  name: Redfish Complete Validation
+  description: Complete BMC Redfish API validation - authentication, system info, power policies
+
+run:
+  steps:
+    - apt-get update -qq
+    - apt-get install -y curl
+    - cd redfish/scripts
+    - bash full_redfish_test.sh
