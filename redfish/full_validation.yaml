@@ -7,7 +7,7 @@ run:
   steps:
     - apt-get update -qq
     - apt-get install -y curl
-    - echo "Device info - Board ID: $LAVA_DEVICE_INFO_0_board_id"
-    - echo "Device info - BMC IP: $LAVA_DEVICE_INFO_0_bmc_ip"
+    - echo "Device info - Board ID is $LAVA_DEVICE_INFO_0_serial_number"
+    - echo "Device info - BMC IP is $LAVA_DEVICE_INFO_0_bmc_ip"
     - cd redfish/scripts
     - bash full_redfish_test.sh "$LAVA_DEVICE_INFO_0_bmc_ip"
