@@ -8,4 +8,4 @@ run:
     - apt-get update -qq
     - apt-get install -y curl
     - cd redfish/scripts
-    - bash power_on.sh
+    - bash power_on.sh "$LAVA_DEVICE_INFO_0_bmc_ip"

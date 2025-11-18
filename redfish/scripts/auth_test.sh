@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-BMCIP="192.168.17.111"
+BMCIP="${1:-${LAVA_DEVICE_INFO_0_bmc_ip:-192.168.17.111}}"
 
 echo "Testing Redfish authentication to ${BMCIP}..."
 

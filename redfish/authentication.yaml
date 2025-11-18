@@ -3,10 +3,9 @@ metadata:
   name: Redfish Authentication Test
   description: Test BMC Redfish API authentication
 
-
 run:
   steps:
     - apt-get update -qq
     - apt-get install -y curl
     - cd redfish/scripts
-    - bash auth_test.sh
+    - bash auth_test.sh "$LAVA_DEVICE_INFO_0_bmc_ip"
