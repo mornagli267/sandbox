@@ -1,15 +1,13 @@
 metadata:
   format: Lava-Test Test Definition 1.0
   name: Redfish Complete Validation
-  description: Complete BMC Redfish API validation - authentication, system info, power policies
-
-
-params:
-  BMCIP: "192.168.1.100"  # Default fallback if not provided
+  description: Complete BMC Redfish API validation
 
 run:
   steps:
     - apt-get update -qq
     - apt-get install -y curl
+    - echo "Device info - Board ID: $LAVA_DEVICE_INFO_0_board_id"
+    - echo "Device info - BMC IP: $LAVA_DEVICE_INFO_0_bmc_ip"
     - cd redfish/scripts
-    - bash full_redfish_test.sh "$BMCIP"
+    - bash full_redfish_test.sh "$LAVA_DEVICE_INFO_0_bmc_ip"
