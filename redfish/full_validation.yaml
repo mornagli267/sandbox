@@ -3,9 +3,13 @@ metadata:
   name: Redfish Complete Validation
   description: Complete BMC Redfish API validation - authentication, system info, power policies
 
+
+params:
+  BMCIP: "192.168.1.100"  # Default fallback if not provided
+
 run:
   steps:
     - apt-get update -qq
     - apt-get install -y curl
     - cd redfish/scripts
-    - bash full_redfish_test.sh
+    - bash full_redfish_test.sh "$BMCIP"

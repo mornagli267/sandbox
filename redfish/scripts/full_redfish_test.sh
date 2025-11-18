@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-BMCIP="192.168.17.111"
+# BMCIP="192.168.17.111"
+BMCIP="${1:-192.168.17.110}"  # Use parameter if provided, otherwise default
+
 
 echo "========================================="
 echo "Redfish Complete Validation Test"
