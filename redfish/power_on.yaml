@@ -1,0 +1,11 @@
+metadata:
+  format: Lava-Test Test Definition 1.0
+  name: Redfish Power On
+  description: Send PowerOn command via Redfish API
+
+run:
+  steps:
+    - apt-get update -qq
+    - apt-get install -y curl
+    - cd redfish/scripts
+    - bash power_on.sh
