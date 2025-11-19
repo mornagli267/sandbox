@@ -6,7 +6,20 @@ metadata:
 run:
   steps:
     - apt-get update -qq
-    - apt-get install -y curl
+    - apt-get install -y curl net-tools iproute2
+    - echo "========================================="
+    - echo "VERIFYING THIS RUNS ON DISPATCHER"
+    - echo "========================================="
+    - echo "Hostname:"
+    - hostname
+    - echo ""
+    - echo "Network interfaces (ifconfig):"
+    - ifconfig || ip addr show
+    - echo ""
+    - echo "Routing table:"
+    - ip route || route -n
+    - echo "========================================="
+    - echo ""
     - echo "Device info - Board ID is $LAVA_DEVICE_INFO_0_serial_number"
     - echo "Device info - BMC IP is $LAVA_DEVICE_INFO_0_bmc_ip"
     - cd redfish/scripts
