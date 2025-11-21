@@ -27,7 +27,7 @@ if [ -z "$TOKEN" ]; then
   lava-test-raise "Authentication failed - no token received"
 fi
 
-echo "✓ Authentication successful!"
+echo " Authentication successful!"
 echo "Token: ${TOKEN:0:20}..."
 lava-test-case redfish-authentication --result pass
 
@@ -46,7 +46,7 @@ if [ -z "$SYSTEM_INFO" ]; then
   lava-test-raise "Failed to retrieve system information"
 fi
 
-echo "✓ System information retrieved successfully"
+echo " System information retrieved successfully"
 lava-test-case redfish-system-info --result pass
 
 # Step 3: Validate PowerRestorePolicy
@@ -62,7 +62,7 @@ if [ "$POWER_RESTORE_POLICY" != "AlwaysOn" ]; then
   lava-test-raise "PowerRestorePolicy validation failed"
 fi
 
-echo "✓ PowerRestorePolicy is 'AlwaysOn'"
+echo " PowerRestorePolicy is 'AlwaysOn'"
 lava-test-case power-restore-policy --result pass
 
 # Step 4: Validate PowerState
@@ -78,17 +78,17 @@ if [ "$POWER_STATE" != "On" ]; then
   lava-test-raise "PowerState validation failed"
 fi
 
-echo "✓ PowerState is 'On'"
+echo " PowerState is 'On'"
 lava-test-case power-state --result pass
 
 # Success Summary
 echo ""
 echo "========================================="
 echo "All validations PASSED!"
-echo "  ✓ Authentication successful"
-echo "  ✓ System information retrieved"
-echo "  ✓ PowerRestorePolicy: AlwaysOn"
-echo "  ✓ PowerState: On"
+echo "   Authentication successful"
+echo "   System information retrieved"
+echo "   PowerRestorePolicy: AlwaysOn"
+echo "   PowerState: On"
 echo "========================================="
 
 exit 0

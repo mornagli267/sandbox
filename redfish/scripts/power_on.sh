@@ -22,7 +22,7 @@ if [ -z "$TOKEN" ]; then
   exit 1
 fi
 
-echo "✓ Authentication successful"
+echo " Authentication successful"
 
 # Send PowerOn command
 POWER_ON_RESPONSE=$(curl --max-time 10 -s -k -w "\n%{http_code}" \
@@ -37,7 +37,7 @@ RESPONSE_BODY=$(echo "$POWER_ON_RESPONSE" | sed '$d')
 echo "HTTP Response Code: ${HTTP_CODE}"
 
 if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "204" ]; then
-  echo "✓ PowerOn command sent successfully"
+  echo " PowerOn command sent successfully"
   lava-test-case power-on-command --result pass
 else
   echo "ERROR: PowerOn command failed with HTTP ${HTTP_CODE}"
